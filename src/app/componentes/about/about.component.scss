@@ -24,3 +24,31 @@
         }
     }
 }
+
+@media (max-width : 576px){
+    .about-container{
+        .qualification-container {
+            .faceImg{
+                border-radius: 50%;
+                width: 35%;
+                position: absolute;
+                top: -25vw;
+                left: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width : 720px){
+    .about-container{
+        .qualification-container {
+            .faceImg{
+                border-radius: 50%;
+                width: 20%;
+                position: absolute;
+                top: -15vw;
+                left: 40%;
+            }
+        }
+    }
+}

@@ -18,3 +18,19 @@
         backdrop-filter: blur(10px);
     }
 }
+
+@media (max-width : 576px){
+    .banner-container{
+        .titleh2{            
+            font-size: 2rem;
+        }
+    }
+}
+
+@media (max-width : 720px){
+    .banner-container{
+        .titleh2{            
+            font-size: 3rem;
+        }
+    }
+}
