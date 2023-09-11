@@ -11,8 +11,9 @@ trabajos: any = [{
   id: 1,
   img: "../../../assets/img/logoBabel.png",
   titulo: "BABEL",
-  descripcion: "",
-  link: "https://www.babelgroup.com/"
+  descripcion: "Desarrollo de software con lenguajes en .net core, javascript, html5, css3, jquery y reporting services.",
+  link: `https://www.babelgroup.com/`,
+  fecha: "Feb 2020 - Actualmente"
 }];
 
 

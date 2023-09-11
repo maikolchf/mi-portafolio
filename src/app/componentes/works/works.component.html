@@ -3,13 +3,19 @@
         <h3 class="titleh3">Experiencia laboral</h3>
     </div>    
     <div class="col-xs-12 col-md-9 info-works d-flex align-items-center justify-content-center" >
-        <div class="card" style="width: 13rem;" *ngFor="let trabajo of trabajos">
-            <img src="{{ trabajo.img }}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"> {{ trabajo.titulo }}</h5>
-              <p class="card-text"> {{ trabajo.descripcion }} </p> 
-              <a href=" {{ trabajo.link }}" class="">Visitar Web</a>           
+        <div class="row">
+          <div class="col" *ngFor="let trabajo of trabajos">
+            <div class="card">
+              <img src="{{ trabajo.img }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"> {{ trabajo.titulo }}</h5>              
+                <p class="card-text"> {{ trabajo.fecha }} </p>
+                <p class="card-text"> {{ trabajo.descripcion }} </p> 
+                <a [href]="trabajo.link" class="" target="_blank">Visitar Web</a>           
+              </div>
             </div>
           </div>
+        </div>
+       
     </div>
 </div>
