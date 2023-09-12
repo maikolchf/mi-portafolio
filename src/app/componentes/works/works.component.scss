@@ -8,6 +8,36 @@
             width: 18rem !important;   
             margin: 2px;    
         }
+        .work-item-container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            
+        }
+    }
+}
+
+@media(max-width : 1684px){
+    .work-item-container{
+        grid-template-columns: repeat(3,1fr) !important;
+    }
+}
+
+@media(max-width : 1273px){
+    .work-item-container{
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width : 847px){
+    .work-item-container{
+        grid-template-columns: repeat(1,1fr) !important;
+
+        .work-item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }
 
