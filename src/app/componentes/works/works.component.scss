@@ -3,10 +3,18 @@
     position: relative;
     padding-top: 5%;
 
-    .info-works{
+    .info-works{        
         .card{
             width: 18rem !important;   
-            margin: 2px;        
+            margin: 2px;    
         }
+    }
+}
+
+@media(max-width : 765px){
+    .work-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
