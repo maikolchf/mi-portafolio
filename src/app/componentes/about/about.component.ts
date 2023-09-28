@@ -9,7 +9,7 @@ import { sobreMi } from 'src/app/models/sobreMi.model';
 })
 export class AboutComponent {
   puesto: string = "";
-  img_perfil: string = '../../../assets/img/Img-perfil.png';
+  img_perfil: string = '../../../assets/img/Img-perfil.JPEG';
   info_Sobre_mi: any = [];  
 
  constructor(private data: AppComponent){

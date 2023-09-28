@@ -8,7 +8,7 @@ import { respuesta } from '../models/respuesta.model';
   providedIn: 'root'
 })
 export class ApiServiceService {
-  private apiUrl = "https://maikolchf.bsite.net/api/DatosPortafolio";
+  private apiUrl = "https://localhost:7125/api/DatosPortafolio";
   constructor(private http: HttpClient) {}
 
    obtenerDatos (id: string): Observable<respuesta> {    

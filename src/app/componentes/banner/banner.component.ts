@@ -9,7 +9,7 @@ import { ApiServiceService } from 'src/app/services/api.service.service';
 })
 export class BannerComponent{
   nombre: string = "Michael Chavarria Flores";
-  imagen : string = `url("../../../assets/img/banner1.png")`;
+  imagen : string = `url("../../../assets/img/banner1.JPEG")`;
   constructor(private data: AppComponent){
     data.usuario$.subscribe((item) => {
       if(item){
