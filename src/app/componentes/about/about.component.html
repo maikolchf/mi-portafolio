@@ -1,13 +1,13 @@
 <div class="about-container row">
     <div class="qualification-container col-xs-12 col-md-3">
         <img class="faceImg img-fluid" [src]="img_perfil" alt="" width="250">
-        <p class="qualification text-center">Full Stack Developer</p>
+        <p class="qualification text-center">{{ puesto }}</p>
     </div>
     <div class="text-about col-xs-12 col-md-9">
         <h3 class="section-title">Sobre Mi</h3>
         <div class="about-description">
             <ul>
-                <li class="text-justify" *ngFor="let item of info_Sobre_mi"> {{ item }}</li>
+                <p class="text-justify" *ngFor="let item of info_Sobre_mi"> {{ item.descripcion }}</p>
             </ul>           
         </div>       
     </div>

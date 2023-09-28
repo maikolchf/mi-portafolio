@@ -3,13 +3,13 @@
     <div class="footer-container">
       <div class="row d-flex d-flex justify-content-center">
         <div class="col-lg-4">
-          <h3>Contacto</h3>
-          <p>Correo electrónico: maikolchf@outlook.com</p>
-          <p>Teléfono: +506 86588363</p>
+          <h3>Contacto {{ user.Celular }}</h3>
+          <p>Correo electrónico: {{ user.CorreoElectronico }}</p>
+          <p>Teléfono: </p>
         </div>
         <div class="col-lg-4">
           <h3>Derechos de autor</h3>
-          <p>(c) 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+          <p>(c) {{anno}} Mi Sitio Web. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>
