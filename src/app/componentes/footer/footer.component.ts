@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { usuario } from '../../models/usuario.model'
 import { IndexComponent } from '../index/index.component';
 
 @Component({
