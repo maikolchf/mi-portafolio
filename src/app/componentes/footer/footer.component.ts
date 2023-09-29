@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { usuario } from '../../models/usuario.model'
+import { IndexComponent } from '../index/index.component';
 
 @Component({
   selector: 'app-footer',
@@ -8,28 +9,18 @@ import { usuario } from '../../models/usuario.model'
 })
 export class FooterComponent {
     anno: number = obtenerAnno();
-    user : usuario;
+    user : any;
 
-    constructor(){
-      this.user = obtenerInfoUsuario ()
+    constructor(private data: IndexComponent){
+      data.usuario$.subscribe((item) => {
+        if(item){
+          this.user = item.usuario;
+        }     
+      });
     }
 }
 
 function obtenerAnno(): number {
   const fechaActual = new Date();
   return fechaActual.getFullYear();
-}
-
-function obtenerInfoUsuario (): usuario {  
-  return {
-    Id: "0",
-    Nombre: "Michael",
-    PrimerApellido: "Chavarria",
-    SegundoApellido: "Flores",
-    Celular: "+506 86588363",
-    CorreoElectronico: "maikolchf@outlook.com",
-    Contrasenna: "",
-    Imagen: "",
-    PuestoLaboral: ""
-  }
 }

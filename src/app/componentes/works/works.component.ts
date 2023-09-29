@@ -17,8 +17,3 @@ export class WorksComponent {
     });
   }
 }
-
-/*
- this.nombre = (item.usuario.nombre +" "+ item.usuario.primerApellido +" "+ item.usuario.segundoApellido);
-      this.imagen = `'url("../../../assets/img/${item.usuario.imagen})'`;
-      */
