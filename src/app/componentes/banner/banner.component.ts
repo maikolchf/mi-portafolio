@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
-import { ApiServiceService } from 'src/app/services/api.service.service';
+import { IndexComponent } from '../index/index.component';
 
 @Component({
   selector: 'app-banner',
@@ -10,7 +9,7 @@ import { ApiServiceService } from 'src/app/services/api.service.service';
 export class BannerComponent{
   nombre: string = "Michael Chavarria Flores";
   imagen : string = `url("../../../assets/img/banner1.JPEG")`;
-  constructor(private data: AppComponent){
+  constructor(private data: IndexComponent){
     data.usuario$.subscribe((item) => {
       if(item){
         this.nombre = (item.usuario.nombre +" "+ item.usuario.primerApellido +" "+ item.usuario.segundoApellido);

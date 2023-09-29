@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
-import { sobreMi } from 'src/app/models/sobreMi.model';
+import { IndexComponent } from '../index/index.component';
 
 @Component({
   selector: 'app-about',
@@ -12,7 +11,7 @@ export class AboutComponent {
   img_perfil: string = '../../../assets/img/Img-perfil.JPEG';
   info_Sobre_mi: any = [];  
 
- constructor(private data: AppComponent){
+ constructor(private data: IndexComponent){
   data.usuario$.subscribe((item) => {
     if(item){
       this.puesto = item.usuario.puestoLaboral;
