@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IndexComponent } from '../index/index.component';
+import { expeLaboral } from 'src/app/models/expeLaboral.model';
 
 @Component({
   selector: 'app-works',
@@ -6,15 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./works.component.scss']
 })
 export class WorksComponent {
-
-trabajos: any = [{
-  id: 1,
-  img: "../../../assets/img/logoBabel.png",
-  titulo: "BABEL",
-  descripcion: "Desarrollo de software con lenguajes en .net core, javascript, html5, css3, jquery y reporting services.",
-  link: `https://www.babelgroup.com/`,
-  fecha: "Febrero de 2020 - Actualmente"
-}];
-
-
+  trabajos : any;
+  constructor(private data: IndexComponent) {
+    data.usuario$.subscribe((item) => {
+      if(item){
+        this.trabajos = item.expeLaboral;
+      }     
+    });
+  }
 }
+
+/*
+ this.nombre = (item.usuario.nombre +" "+ item.usuario.primerApellido +" "+ item.usuario.segundoApellido);
+      this.imagen = `'url("../../../assets/img/${item.usuario.imagen})'`;
+      */

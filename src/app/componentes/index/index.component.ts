@@ -14,17 +14,6 @@ export class IndexComponent implements OnInit{
   title = 'mi-portafolio';
   private dataSubject = new BehaviorSubject<any>(null);
   public usuario$ = this.dataSubject.asObservable();
-  datosEnviar: usuario = {
-    Id: "ntiRhBJH0akjSBGAyBtA",
-    Nombre: "",
-    PrimerApellido: "",
-    SegundoApellido: "",
-    Celular: "",
-    Contrasenna: "",
-    CorreoElectronico: "",
-    Imagen: "",
-    PuestoLaboral: ""
-  };
 
  constructor(private apiService: ApiServiceService, private route: ActivatedRoute){}
 
