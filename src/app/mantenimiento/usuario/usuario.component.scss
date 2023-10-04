@@ -1,0 +1,35 @@
+.formulario-container{
+    margin: 0 50px;
+    position: relative;
+    padding-top: 5%;
+
+    .formulario-items{        
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;    
+        
+        .acciones{
+            button{
+                margin: 2px;
+            }
+        }
+    }
+}
+
+@media(max-width : 1684px){
+    .formulario-items{
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width : 1273px){
+    .formulario-items{
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width : 847px){
+    .formulario-items{
+        grid-template-columns: repeat(1,1fr) !important;
+    }
+}

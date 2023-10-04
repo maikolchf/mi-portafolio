@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent{
   title = 'mi-portafolio';
  constructor(private router: Router){
-  this.router.navigateByUrl('/index/ntiRhBJH0akjSBGAyBtA');
+  //this.router.navigateByUrl('/index/ntiRhBJH0akjSBGAyBtA');
  }
 
 }
