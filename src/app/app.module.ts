@@ -24,7 +24,8 @@ import { UsuarioComponent } from './mantenimiento/usuario/usuario.component';
 import { SobremiComponent } from './mantenimiento/sobremi/sobremi.component';
 import { TrabajosComponent } from './mantenimiento/trabajos/trabajos.component'
 import { IndexMantenimientoComponent } from './mantenimiento/index/index.component'
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputMaskModule } from '@ngneat/input-mask'
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputMaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

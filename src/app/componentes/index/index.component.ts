@@ -19,7 +19,6 @@ export class IndexComponent implements OnInit{
 
  ngOnInit(): void {
   this.route.paramMap.subscribe(parametro => {
-    console.log(parametro.get('id'))
     this.apiService.obtenerDatos(parametro.get('id') ?? "").subscribe((resp) => {
       if(!resp.hayError){
         this.dataSubject.next(resp.objetoRespuesta);

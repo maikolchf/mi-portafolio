@@ -14,8 +14,16 @@ form{
                     margin: 2px;
                 }
             }
+
+            .msjErrorComapoRequerido{
+                color: red;
+            }
         }
     }
+}
+
+.alert{
+    text-align: center;
 }
 
 
