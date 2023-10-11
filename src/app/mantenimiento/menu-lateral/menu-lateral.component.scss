@@ -14,7 +14,7 @@ body{
 }
 
 nav{
-    position: absolute;
+    position: relative;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -24,6 +24,7 @@ nav{
     overflow: hidden;
     transition: width 0.2s linear;
     box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 .logo {
@@ -89,16 +90,14 @@ nav:hover{
 
  @media(max-width : 990px){
     nav:hover{
-        width: 90px;       
-    }
-
-    A:hover{
-        background: #eee;
-    }    
+        width: 220px;
+        transition: all 0.5s ease;          
+    }  
 }
 
 .contenedor{
   display: flex;
+  height: 100%;
   .menu{
     width: 90px;
     transition: width 0.2s linear;
