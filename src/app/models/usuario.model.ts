@@ -1,11 +1,13 @@
 export interface usuario {
-   Id: string,
-   Nombre: string,
-   PrimerApellido: string,
-   SegundoApellido: string,
-   PuestoLaboral: string,
-   Celular: string,
-   CorreoElectronico: string,
-   Contrasenna: string,
-   Imagen: string
+   id: string,
+   nombre: string,
+   primerApellido: string,
+   segundoApellido: string,
+   puestoLaboral: string,
+   celular: string,
+   correoElectronico: string,
+   contrasenna: string,
+   imagen: string,
+   imagenPerfil: string,
+   imagenBanner: File
 }
