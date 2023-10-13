@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { usuario } from '../models/usuario.model';
 import { respuesta } from '../models/respuesta.model';
 
 @Injectable({
@@ -16,8 +15,10 @@ export class ApiServiceService {
    }
 
    actualizarUsuario(dato: any): Observable<respuesta>{
-    const formData = new FormData();
-    formData.append('value', JSON.stringify(dato))
-    return this.http.post<respuesta>(`${this.apiUrl}/Usuario/PostModificarUsuario`,formData);
+    return this.http.post<respuesta>(`${this.apiUrl}/Usuario/PostModificarUsuario`,dato, { headers: new HttpHeaders(
+      { 
+        'Content-Type': 'application/json',
+      })
+    });
    }
 }

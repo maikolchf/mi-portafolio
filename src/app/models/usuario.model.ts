@@ -8,6 +8,5 @@ export interface usuario {
    correoElectronico: string,
    contrasenna: string,
    imagen: string,
-   imagenPerfil: string,
-   imagenBanner: File
+   imagenPerfil: string
 }

@@ -6,6 +6,7 @@ import { usuario } from 'src/app/models/usuario.model';
 import { Observable, from, of, switchMap } from 'rxjs';
 import { IndexMantenimientoComponent } from '../index/index.component';
 import { ApiServiceService } from 'src/app/services/api.service.service';
+import { FirebaseStorageService } from 'src/app/services/firebase-storage.service';
 
 @Component({
   selector: 'app-usuario',
@@ -40,18 +41,19 @@ export class UsuarioComponent implements OnInit{
   claseSalida = '';
   idUsuario ='';
   // hasta aqui
-  constructor (private data: IndexMantenimientoComponent,private apiService: ApiServiceService) {}
+
+  imagenBanner: any = null;
+  imagenPerfil: any = null;
+  constructor (private data: IndexMantenimientoComponent,private apiService: ApiServiceService, private storage: FirebaseStorageService) {}
   
   onSumit(){
     if(this.formulario.valid){
 
       this.construirObjetoInsertar(this.formulario).subscribe((item) => {
         this.guardarDatos(item);
-      });
-      
-      this.mostrarMensaje('¡Datos almacenados correctamente!', 'alert alert-success');
+      });      
     }else{
-      this.mostrarMensaje('¡Debe de completar los campos pendientes!', 'alert alert-danger');
+      this.mostrarMensaje('¡Debe de completar los campos pendientes!', 'alert alert-warning');
     }
   }
 
@@ -90,16 +92,15 @@ export class UsuarioComponent implements OnInit{
           id: form.get('Id')?.value,
           celular: form.get('Celular')?.value,
           contrasenna: form.get('Contrasenna')?.value ? form.get('Contrasenna')?.value : item.usuario.contrasenna,
-          correoElectronico: form.get('CorreoElectronico')?.value,
-          imagen: form.get('ImgEncabezado')?.value ? form.get('ImgEncabezado')?.value : item.usuario.imagen,
-          imagenPerfil: form.get('ImgPerfil')?.value ? form.get('ImgPerfil')?.value : item.usuario.imagenPerfil,
+          correoElectronico: form.get('CorreoElectronico')?.value,          
           nombre: form.get('Nombre')?.value,
           primerApellido: form.get('PrimerApellido')?.value,
           puestoLaboral: form.get('PuestoLaboral')?.value,
           segundoApellido: form.get('SegundoApellido')?.value,
-          imagenBanner: form.get('ImgEncabezado')?.value
+          imagen: this.imagenBanner ?? item.usuario.imagen,
+          imagenPerfil: this.imagenPerfil ?? item.usuario.imagenPerfil,
         };
-  
+        
         return of(dato);
       })
     );
@@ -107,10 +108,38 @@ export class UsuarioComponent implements OnInit{
 
   guardarDatos(datos: usuario){
     this.apiService.actualizarUsuario(datos).subscribe((resp) => {
-      console.log(resp)
+      if(!resp.hayError){
+        this.mostrarMensaje(resp.mensaje, 'alert alert-success');
+      }else{
+        this.mostrarMensaje(resp.mensaje, 'alert alert-danger');
+      }
+      
     }) 
   }
 
+  obtenerImagenBanner(event:any){
+    let imagen = event.target.files;
+    let fileReader = new FileReader();
+    let nombreImg = this.formulario.get('Id')?.value + "-Banner"
+    fileReader.readAsDataURL(imagen[0]);
+    fileReader.onloadend = () => {
+      this.storage.subirImagen(this.formulario.get('Id')?.value, nombreImg, fileReader.result).then((item) => {
+        this.imagenBanner = item;
+      });
+    }
+  }
+
+  obtenerImagenPerfil(event:any){
+    let imagen = event.target.files;
+    let fileReader = new FileReader();
+    let nombreImg = this.formulario.get('Id')?.value + "-Perfil"
+    fileReader.readAsDataURL(imagen[0]);
+    fileReader.onloadend = () => {
+      this.storage.subirImagen(this.formulario.get('Id')?.value, nombreImg, fileReader.result).then((item) => {
+       this.imagenPerfil = item;
+      });
+    }
+  }
   ngOnInit(): void {
     this.llenarFormulario();
   }

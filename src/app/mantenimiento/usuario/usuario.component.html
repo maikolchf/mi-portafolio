@@ -79,7 +79,7 @@
                 <div class="form-label">
                     <label>Imagen del encabezado</label>  
                     <br>  
-                    <input type="file" class="form-control-file" formControlName="ImgEncabezado" id="ImgEncabezado">         
+                    <input type="file" accept=".pnj, .jpg, .jpeg" (change)="obtenerImagenBanner($event)" class="form-control-file" formControlName="ImgEncabezado" id="ImgEncabezado">         
                     <div class="msjErrorComapoRequerido" *ngIf="formulario.get('ImgEncabezado')?.hasError('required')">
                         Campo obligatorio
                     </div>
@@ -90,7 +90,7 @@
                 <div class="form-label">
                     <label>Imagen de perfil</label>   
                     <br>  
-                    <input type="file" class="form-control-file" formControlName="ImgPerfil" id="ImgPerfil">
+                    <input type="file" accept=".pnj, .jpg, .jpeg" (change)="obtenerImagenPerfil($event)" class="form-control-file" formControlName="ImgPerfil" id="ImgPerfil">
                     <div class="msjErrorComapoRequerido" *ngIf="formulario.get('ImgPerfil')?.hasError('required')">
                         Campo obligatorio
                     </div>                   

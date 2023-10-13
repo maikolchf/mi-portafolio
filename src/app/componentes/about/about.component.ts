@@ -8,7 +8,7 @@ import { IndexComponent } from '../index/index.component';
 })
 export class AboutComponent {
   puesto: string = "";
-  img_perfil: string = '../../../assets/img/Img-perfil.JPEG';
+  img_perfil: string = '';
   info_Sobre_mi: any = [];  
 
  constructor(private data: IndexComponent){
@@ -16,6 +16,7 @@ export class AboutComponent {
     if(item){
       this.puesto = item.usuario.puestoLaboral;
       this.info_Sobre_mi = item.sobreMi;
+      this.img_perfil = item.usuario.imagenPerfil;
     }     
   });
  }
