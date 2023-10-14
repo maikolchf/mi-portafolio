@@ -7,7 +7,7 @@ import { respuesta } from '../models/respuesta.model';
   providedIn: 'root'
 })
 export class ApiServiceService {
-  private apiUrl = "http://www.miportafolio.somee.com/api";
+  private apiUrl = "https://www.miportafolio.somee.com/api";
   constructor(private http: HttpClient) {}
 
    obtenerDatos (id: string): Observable<respuesta> {    
