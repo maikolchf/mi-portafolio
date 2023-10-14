@@ -15,16 +15,17 @@ body{
 
 nav{
     position: relative;
-    top: 0;
-    bottom: 0;
-    height: 100%;
+    margin: 5%;
+    height: 99%;
     left: 0;
-    background: #fff;
+    background: #0073e6;
     width: 90px;
     overflow: hidden;
     transition: width 0.2s linear;
-    box-shadow: 0 20px 35px rgb(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1;
+    border-radius: 10px;
+
 }
 
 .logo {
@@ -47,7 +48,7 @@ nav{
 
 a{
     position: relative;
-    color: rgb(85, 83, 83);
+    color: white;
     font-size: 14px;
     display: table;
     width: 300px;
@@ -62,15 +63,21 @@ a{
     font-size: 20px;
     text-align: center;
 }
-.nav-item{
+.nav-item {
     position: relative;
     top: 12px;
     margin-left: 10px;
-
+    transition: color 0.3s ease; 
+    font-size: 15px; 
+    font-weight: bold; 
 }
 
 A:hover{
     background: #eee;
+}
+
+a:hover .nav-item {
+    color: #0073e6;
 }
 
 nav:hover{
@@ -78,28 +85,17 @@ nav:hover{
     transition: all 0.5s ease;    
 }
 
-@media(max-width : 1273px){
-    nav:hover{
-        width: 220px;
-        transition: all 0.5s ease;        
-    }
-    span{
-        font-size: 12px;
-    }
- }
-
- @media(max-width : 990px){
-    nav:hover{
-        width: 220px;
-        transition: all 0.5s ease;          
-    }  
+.menu.active {
+    display: block;
 }
-
+.menu {
+    display: none;
+}
 .contenedor{
   display: flex;
   height: 100%;
   .menu{
-    width: 90px;
+    width: 100px;
     transition: width 0.2s linear;
   }
   .menu:hover{
@@ -107,7 +103,46 @@ nav:hover{
     transition: all 0.5s ease;
   }
   .cuerpo{
-    margin: 10px;
-    flex-grow: 1;
+    position: absolute;
+    margin-left: 4.5%;
+    flex-grow: 1; 
+    width: 95.5%; 
+    height: 100%;  
   }
 }
+
+
+
+@media(max-width : 5000px){
+    nav:hover{
+        width: 225px;
+        transition: all 0.5s ease;        
+    }
+    span{
+        font-size: 12px;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .btn-menu{
+        display: none;
+    }
+ }
+
+
+ @media(max-width : 940px){
+    .contenedor{
+        .cuerpo{
+            margin-left: 0%;            
+        }
+    }  
+    .menu {
+        display: none;
+    } 
+    .btn-menu{
+        display: block;
+    }
+}
+

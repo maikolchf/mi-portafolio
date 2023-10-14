@@ -1,22 +1,25 @@
-form{
+form{    
+    height: 100%;  
     .formulario-container{
-        margin: 0 50px;
+        margin: 0 55px;
         position: relative;
-        padding-top: 5%;
-        
+        padding-top: 5%; 
         .formulario-items{        
             display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 20px;    
-            
+            grid-template-columns: repeat(3,1fr);
+            gap: 2%;    
+            border: none;
             .acciones{
                 button{
                     margin: 2px;
                 }
             }
-
             .msjErrorComapoRequerido{
                 color: red;
+            }
+
+            input{
+                width: 100%;
             }
         }
     }
@@ -25,7 +28,6 @@ form{
 .alert{
     text-align: center;
 }
-
 
 @media(max-width : 1684px){
     .formulario-items{
@@ -39,7 +41,8 @@ form{
     }
 }
 
-@media(max-width : 900px){
+@media(max-width : 940px){
+
     .formulario-items{
         grid-template-columns: repeat(1,1fr) !important;
     }

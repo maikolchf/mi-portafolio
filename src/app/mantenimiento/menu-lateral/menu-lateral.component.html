@@ -1,43 +1,46 @@
-<div class="contenedor">
-  <div class="menu">
-    <nav>
-      <ul>
-          <li>
-              <a href="mantenimiento/Index" class="logo">
-                  <img class="nav-item" src="../../../assets/img/logo.png" alt="" width="110">    
-                  <span class="nav-item">Portafolio</span>            
-              </a>
-          </li>
-          <li>
-              <a>
-                  <i class="fa fa-home"></i>
-                  <span class="nav-item">Home</span>
-              </a>
-          </li>
-          <li>
-              <a [routerLink]="['Usuario']" routerLinkActive="activo">
-                  <i class="fa fa-user"></i>
-                  <span class="nav-item">Usuario</span>
-              </a>              
-          </li>
-          <li>
-              <a [routerLink]="['SobreMi']"  routerLinkActive="activo">
-                  <i class="fa fa-address-card"></i>
-                  <span class="nav-item">Sobre mi</span>
-              </a>
-          </li>
-          <li>
-              <a [routerLink]="['Trabajos']"  routerLinkActive="activo">
-                  <i class="fa fa-briefcase"></i>
-                  <span class="nav-item">Trabajos</span>
-              </a>
-          </li>
-      </ul>
-  </nav>
-  </div>
-  <div class="cuerpo">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<i class="fa fa-bars btn-menu" aria-hidden="true" (click)="toggleMenu()"></i> 
 
-  
+    <div class="contenedor">        
+        <div [ngClass]="{'active': isMenuOpen}" class="menu">            
+            <nav>
+                <ul>
+                    <li (click)="closeMenu()">
+                        <a href="mantenimiento/Index" class="logo">
+                            <img class="nav-item" src="../../../assets/img/logo.png" alt="" width="110">    
+                            <span class="nav-item">Portafolio</span>            
+                        </a>
+                    </li>
+                    <li (click)="closeMenu()">
+                        <a href="mantenimiento/Index">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-item">Home</span>
+                        </a>
+                    </li>
+                    <li (click)="closeMenu()">
+                        <a [routerLink]="['Usuario']" routerLinkActive="activo">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-item">Usuario</span>
+                        </a>              
+                    </li>
+                    <li (click)="closeMenu()">
+                        <a [routerLink]="['SobreMi']"  routerLinkActive="activo">
+                            <i class="fa fa-address-card"></i>
+                            <span class="nav-item">Sobre mi</span>
+                        </a>
+                    </li>
+                    <li (click)="closeMenu()">
+                        <a [routerLink]="['Trabajos']"  routerLinkActive="activo">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="nav-item">Trabajos</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="cuerpo">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+
+
+

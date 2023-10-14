@@ -10,10 +10,18 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class MenuLateralComponent {
   private breakpointObserver = inject(BreakpointObserver);
-
+  isMenuOpen = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
+
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    }
+
+    closeMenu() {
+      this.isMenuOpen = false;
+    }
 }

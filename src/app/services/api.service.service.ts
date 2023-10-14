@@ -11,9 +11,7 @@ export class ApiServiceService {
   constructor(private http: HttpClient) {}
 
    obtenerDatos (id: string): Observable<respuesta> {    
-    return this.http.get<respuesta>(`${this.apiUrl}/DatosPortafolio/${id}`,{headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*'
-    })});
+    return this.http.get<respuesta>(`${this.apiUrl}/DatosPortafolio/${id}`);
    }
 
    actualizarUsuario(dato: any): Observable<respuesta>{
