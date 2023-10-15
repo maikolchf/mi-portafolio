@@ -5,14 +5,18 @@ import { UsuarioComponent } from './mantenimiento/usuario/usuario.component';
 import { SobremiComponent } from './mantenimiento/sobremi/sobremi.component';
 import { TrabajosComponent } from './mantenimiento/trabajos/trabajos.component';
 import { IndexMantenimientoComponent } from './mantenimiento/index/index.component';
+import { LoginComponent } from './mantenimiento/login/login.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'index/ntiRhBJH0akjSBGAyBtA', pathMatch:'full'},
   {path:'index/:id',component:IndexComponent},
-  {path:'mantenimiento/Index',component:IndexMantenimientoComponent,children:[
+  {path:'mantenimiento/index',component:IndexMantenimientoComponent,children:[
     {path:'Usuario', component:UsuarioComponent},
     {path:'SobreMi', component:SobremiComponent},
     {path:'Trabajos',component:TrabajosComponent}
-  ]}
+  ]},
+  {path:'mantenimiento/login', component:LoginComponent},
+  {path:'**',redirectTo:'index/ntiRhBJH0akjSBGAyBtA'}
 ];
 
 
