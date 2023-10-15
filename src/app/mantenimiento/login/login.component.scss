@@ -44,3 +44,17 @@
   .btn-primary {
     margin-top: 10px;
   }
+
+  .form-control {
+    border: none;
+    border-bottom: 1px solid #5555;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    transition: border-color 0.3s;
+  }
+  
+  .form-control:hover {
+    border-bottom: 1px solid #f0f0f0;
+  }
