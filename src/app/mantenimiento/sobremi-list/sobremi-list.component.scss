@@ -1,0 +1,28 @@
+.sobremi-list-container{
+    margin: 0 55px;
+    position: relative;
+    padding-top: 5%; 
+    height: 100%;
+    .titulo{
+        text-align: center;
+    }
+
+    .contenedor{
+        margin-top: 5%;
+        width: 100%;
+        .tabla-sobremi{
+            thead{
+                th{
+                    background-color: #0073e6;
+                    color: #fff;
+                }
+            }
+            a{
+                margin-right: 5px;
+                color: black;
+            }
+        }
+        
+    }
+    
+}

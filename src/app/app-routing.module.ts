@@ -6,6 +6,7 @@ import { SobremiComponent } from './mantenimiento/sobremi/sobremi.component';
 import { TrabajosComponent } from './mantenimiento/trabajos/trabajos.component';
 import { IndexMantenimientoComponent } from './mantenimiento/index/index.component';
 import { LoginComponent } from './mantenimiento/login/login.component';
+import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'index/ntiRhBJH0akjSBGAyBtA', pathMatch:'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'mantenimiento/index',component:IndexMantenimientoComponent,children:[
     {path:'Usuario', component:UsuarioComponent},
     {path:'SobreMi', component:SobremiComponent},
-    {path:'Trabajos',component:TrabajosComponent}
+    {path:'Trabajos',component:TrabajosComponent},
+    {path:'SobreMi-list',component:SobremiListComponent}
   ]},
   {path:'mantenimiento/login', component:LoginComponent},
   {path:'**',redirectTo:'index/ntiRhBJH0akjSBGAyBtA'}

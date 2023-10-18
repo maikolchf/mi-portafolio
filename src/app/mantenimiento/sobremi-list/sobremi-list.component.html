@@ -1,0 +1,34 @@
+<div class="sobremi-list-container">
+    <h1 class="titulo">
+        Lista de información sobre mi
+    </h1>
+    <div class="contenedor">
+      <a href="" class="btn-agregar">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        <span class="">Agregar</span>
+      </a>
+        <table class=" table tabla-sobremi">
+            <thead>
+              <tr>
+                <th scope="col">Descripción</th>
+                <th scope="col">Eventos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of sobreMi">
+                <td>{{ item.descripcion.slice(0,100) }}...</td>
+                <td>
+                  <a href="">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <span class="text-event">Editar</span>
+                  </a>
+                  <a href="">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <span class="text-event">Eliminar</span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

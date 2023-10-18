@@ -26,7 +26,8 @@ import { TrabajosComponent } from './mantenimiento/trabajos/trabajos.component'
 import { IndexMantenimientoComponent } from './mantenimiento/index/index.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from '@ngneat/input-mask';
-import { LoginComponent } from './mantenimiento/login/login.component'
+import { LoginComponent } from './mantenimiento/login/login.component';
+import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component'
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { LoginComponent } from './mantenimiento/login/login.component'
     SobremiComponent,
     TrabajosComponent,
     IndexMantenimientoComponent,
-    LoginComponent
+    LoginComponent,
+    SobremiListComponent
   ],
   imports: [
     BrowserModule,
