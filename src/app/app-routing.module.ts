@@ -9,16 +9,21 @@ import { LoginComponent } from './mantenimiento/login/login.component';
 import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'index/ntiRhBJH0akjSBGAyBtA', pathMatch:'full'},
-  {path:'index/:id',component:IndexComponent},
-  {path:'mantenimiento/index',component:IndexMantenimientoComponent,children:[
-    {path:'Usuario', component:UsuarioComponent},
-    {path:'SobreMi', component:SobremiComponent},
-    {path:'Trabajos',component:TrabajosComponent},
-    {path:'SobreMi-list',component:SobremiListComponent}
-  ]},
-  {path:'mantenimiento/login', component:LoginComponent},
-  {path:'**',redirectTo:'index/ntiRhBJH0akjSBGAyBtA'}
+  { path: '', redirectTo: 'index/ntiRhBJH0akjSBGAyBtA', pathMatch: 'full' },
+  { path: 'index/:id', component: IndexComponent },
+  {
+    path: 'mantenimiento/index', component: IndexMantenimientoComponent, children: [
+      { path: 'Usuario', component: UsuarioComponent },
+      { path: 'Trabajos', component: TrabajosComponent },
+      {
+        path: 'SobreMi-list', component: SobremiListComponent, children: [
+          { path: 'SobreMi/:id', component: SobremiComponent },
+        ]
+      }
+    ]
+  },
+  { path: 'mantenimiento/login', component: LoginComponent },
+  { path: '**', redirectTo: 'index/ntiRhBJH0akjSBGAyBtA' }
 ];
 
 
