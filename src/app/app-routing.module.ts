@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'Trabajos', component: TrabajosComponent },
       {
         path: 'SobreMi-list', component: SobremiListComponent, children: [
-          { path: 'SobreMi/:id', component: SobremiComponent },
+          { path: 'SobreMi', component: SobremiComponent },
         ]
       }
     ]

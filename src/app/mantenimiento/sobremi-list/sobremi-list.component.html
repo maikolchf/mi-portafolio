@@ -1,40 +1,44 @@
 <div class="sobremi-list-container">
-    <h1 class="titulo">
-        Lista de información sobre mi
-    </h1>
-    <div class="contenedor">
-      <a href="" class="btn-agregar">
-        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        <span class="">Agregar</span>
-      </a>
-        <table class=" table tabla-sobremi">
-            <thead>
-              <tr>
-                <th scope="col">Descripción</th>
-                <th scope="col">Eventos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of sobreMi">
-                <td>{{ item.descripcion.slice(0,100) }}...</td>
-                <td>
-                  <a [routerLink]="['SobreMi/']+item.id" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    <span class="text-event">Editar</span>
-                  </a>
-                  <a href="">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                    <span class="text-event">Eliminar</span>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+  <div *ngIf="mensajeSalida" [@ocultarMensaje] [ngClass]="claseSalida">
+    {{mensajeSalida}}
+  </div>
+  <h1 class="titulo">
+    Lista de información sobre mi
+  </h1>
+  <div class="contenedor">
+    <a [routerLink]="['SobreMi/']" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      <span class="">Agregar</span>
+    </a>
+    <table class=" table tabla-sobremi">
+      <thead>
+        <tr>
+          <th scope="col">Descripción</th>
+          <th scope="col">Eventos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of sobreMi">
+          <td>{{ item.descripcion.slice(0,100) }}...</td>
+          <td>
+            <a [routerLink]="['SobreMi/']+item.id" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <span class="text-event">Editar</span>
+            </a>
+            <a (click)="eliminarSobremi(item.id)">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <span class="text-event">Eliminar</span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- Modal -->
-<div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
