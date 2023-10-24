@@ -14,6 +14,7 @@ export class IndexComponent implements OnInit{
   title = 'mi-portafolio';
   private dataSubject = new BehaviorSubject<any>(null);
   public usuario$ = this.dataSubject.asObservable();
+  loadingPage = true;
 
  constructor(private apiService: ApiServiceService, private route: ActivatedRoute){}
 
@@ -22,6 +23,7 @@ export class IndexComponent implements OnInit{
     this.apiService.obtenerDatos(parametro.get('id') ?? "").subscribe((resp) => {
       if(!resp.hayError){
         this.dataSubject.next(resp.objetoRespuesta);
+        this.loadingPage = false;
       }
     })
   }); 

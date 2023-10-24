@@ -28,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from '@ngneat/input-mask';
 import { LoginComponent } from './mantenimiento/login/login.component';
 import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component';
-import { SobremiEditarComponent } from './mantenimiento/sobremi-editar/sobremi-editar.component'
+import { SobremiEditarComponent } from './mantenimiento/sobremi-editar/sobremi-editar.component';
+import { LoadingComponent } from './componentes/loading/loading.component'
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SobremiEditarComponent } from './mantenimiento/sobremi-editar/sobremi-e
     IndexMantenimientoComponent,
     LoginComponent,
     SobremiListComponent,
-    SobremiEditarComponent
+    SobremiEditarComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
