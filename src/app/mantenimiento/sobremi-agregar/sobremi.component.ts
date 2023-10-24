@@ -8,6 +8,7 @@ import { ApiServiceService } from 'src/app/services/api.service.service';
 import { respuesta } from 'src/app/models/respuesta.model';
 import { usuario } from 'src/app/models/usuario.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
 
 @Component({
   selector: 'app-sobremi',
@@ -30,7 +31,7 @@ export class SobremiComponent implements OnInit {
   mensajeSalida = '';
   claseSalida = '';
   constructor(private data: IndexMantenimientoComponent, private route: ActivatedRoute,
-    private api: ApiServiceService) { }
+    private api: ApiServiceService, private datosCompartidos: DatosCompartidosService) { }
 
   ngOnInit(): void {
     this.data.usuario$.subscribe((item)=>{
@@ -62,6 +63,7 @@ export class SobremiComponent implements OnInit {
       if(!resp.hayError){
         // manejar respuesta correcta
         this.mostrarMensaje(resp.mensaje, 'alert alert-success');
+        this.datosCompartidos.setObtenerDatosSobreMi(true);
       } else{
         //manejar respuesta incorrecta
         this.mostrarMensaje(resp.mensaje, 'alert alert-danger');

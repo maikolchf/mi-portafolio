@@ -4,6 +4,7 @@ import { ApiServiceService } from 'src/app/services/api.service.service';
 import { usuario } from 'src/app/models/usuario.model'
 import { sobreMi } from 'src/app/models/sobreMi.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
 
 @Component({
   selector: 'app-sobremi-list',
@@ -35,10 +36,17 @@ export class SobremiListComponent implements OnInit{
   claseSalida = '';
   tituloModal: string = "";
   spinnerMostrar = true;
-  constructor(private data: IndexMantenimientoComponent, private apiService: ApiServiceService){}
+  constructor(private data: IndexMantenimientoComponent, private apiService: ApiServiceService,
+    private datosCompartidos: DatosCompartidosService){}
 
   ngOnInit(): void {
     this.obtenerDatos();
+
+    this.datosCompartidos.getObtenerDatosSobreMi().subscribe((item => {
+      if(item){
+        this.obtenerDatos();
+      }
+    }));
   }
 
   obtenerDatos(){
@@ -48,6 +56,7 @@ export class SobremiListComponent implements OnInit{
         this.apiService.obtenerDatosSobreMi(this.filtro).subscribe((info) => {
             if(!info.hayError){
               this.sobreMi = info.objetoRespuesta
+              this.data.dataSobreMi.next(info.objetoRespuesta);
               this.spinnerMostrar = false;
             }
         });
