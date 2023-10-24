@@ -34,6 +34,7 @@ export class SobremiListComponent implements OnInit{
   mensajeSalida = '';
   claseSalida = '';
   tituloModal: string = "";
+  spinnerMostrar = true;
   constructor(private data: IndexMantenimientoComponent, private apiService: ApiServiceService){}
 
   ngOnInit(): void {
@@ -47,6 +48,7 @@ export class SobremiListComponent implements OnInit{
         this.apiService.obtenerDatosSobreMi(this.filtro).subscribe((info) => {
             if(!info.hayError){
               this.sobreMi = info.objetoRespuesta
+              this.spinnerMostrar = false;
             }
         });
       }

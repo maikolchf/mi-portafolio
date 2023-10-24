@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs'
-import { usuario } from 'src/app/models/usuario.model';
 import { ApiServiceService } from 'src/app/services/api.service.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class IndexComponent implements OnInit{
   title = 'mi-portafolio';
   private dataSubject = new BehaviorSubject<any>(null);
   public usuario$ = this.dataSubject.asObservable();
-  loadingPage = true;
+  mostrarLoading = true;
 
  constructor(private apiService: ApiServiceService, private route: ActivatedRoute){}
 
@@ -23,7 +22,7 @@ export class IndexComponent implements OnInit{
     this.apiService.obtenerDatos(parametro.get('id') ?? "").subscribe((resp) => {
       if(!resp.hayError){
         this.dataSubject.next(resp.objetoRespuesta);
-        this.loadingPage = false;
+        this.mostrarLoading = false;
       }
     })
   }); 

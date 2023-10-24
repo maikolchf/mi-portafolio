@@ -29,7 +29,8 @@ import { InputMaskModule } from '@ngneat/input-mask';
 import { LoginComponent } from './mantenimiento/login/login.component';
 import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component';
 import { SobremiEditarComponent } from './mantenimiento/sobremi-editar/sobremi-editar.component';
-import { LoadingComponent } from './componentes/loading/loading.component'
+import { LoadingComponent } from './componentes/loading/loading.component';
+import { SpinnerComponent } from './mantenimiento/spinner/spinner.component'
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { LoadingComponent } from './componentes/loading/loading.component'
     LoginComponent,
     SobremiListComponent,
     SobremiEditarComponent,
-    LoadingComponent
+    LoadingComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

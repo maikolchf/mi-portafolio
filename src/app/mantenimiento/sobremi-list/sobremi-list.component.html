@@ -1,52 +1,55 @@
-<div class="sobremi-list-container">
-  <div *ngIf="mensajeSalida" [@ocultarMensaje] [ngClass]="claseSalida">
-    {{mensajeSalida}}
+<app-spinner *ngIf="spinnerMostrar"></app-spinner>
+<div *ngIf="!spinnerMostrar">
+  <div class="sobremi-list-container">
+    <div *ngIf="mensajeSalida" [@ocultarMensaje] [ngClass]="claseSalida">
+      {{mensajeSalida}}
+    </div>
+    <h1 class="titulo">
+      Lista de información sobre mi
+    </h1>
+    <div class="contenedor">
+      <a [routerLink]="['SobreMi-agregar/']" (click)="eventoBtnAgregar()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        <span class="">Agregar</span>
+      </a>
+      <table class=" table tabla-sobremi">
+        <thead>
+          <tr>
+            <th scope="col">Descripción</th>
+            <th scope="col">Eventos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of sobreMi">
+            <td>{{ item.descripcion.slice(0,100) }}...</td>
+            <td>
+              <a [routerLink]="['SobreMi-editar/']+item.id" (click)="eventoBtnEditar()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <span class="text-event">Editar</span>
+              </a>
+              <a (click)="eliminarSobremi(item.id)">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <span class="text-event">Eliminar</span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <h1 class="titulo">
-    Lista de información sobre mi
-  </h1>
-  <div class="contenedor">
-    <a [routerLink]="['SobreMi-agregar/']" (click)="eventoBtnAgregar()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      <i class="fa fa-plus-circle" aria-hidden="true"></i>
-      <span class="">Agregar</span>
-    </a>
-    <table class=" table tabla-sobremi">
-      <thead>
-        <tr>
-          <th scope="col">Descripción</th>
-          <th scope="col">Eventos</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of sobreMi">
-          <td>{{ item.descripcion.slice(0,100) }}...</td>
-          <td>
-            <a [routerLink]="['SobreMi-editar/']+item.id" (click)="eventoBtnEditar()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              <span class="text-event">Editar</span>
-            </a>
-            <a (click)="eliminarSobremi(item.id)">
-              <i class="fa fa-trash-o" aria-hidden="true"></i>
-              <span class="text-event">Eliminar</span>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <router-outlet></router-outlet>
+  
+  <!-- Modal -->
+  <div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>
