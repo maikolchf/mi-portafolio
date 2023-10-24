@@ -1,0 +1,20 @@
+<div *ngIf="mensajeSalida" [@ocultarMensaje] [ngClass]="claseSalida">
+    {{mensajeSalida}}
+</div>
+
+<div class="sobremi-editar">
+    <form [formGroup]="formulario" (ngSubmit)="onSumit()">
+        <div class="formulario-contenedor">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="Descripcion"></textarea>
+            </div>
+            <div class="msjErrorComapoRequerido" *ngIf="formulario.get('Descripcion')?.hasError('required')">
+                Campo obligatorio
+            </div>
+        </div>
+        <div class="acciones">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>

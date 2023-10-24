@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './componentes/index/index.component';
 import { UsuarioComponent } from './mantenimiento/usuario/usuario.component';
-import { SobremiComponent } from './mantenimiento/sobremi/sobremi.component';
+import { SobremiComponent } from './mantenimiento/sobremi-agregar/sobremi.component';
 import { TrabajosComponent } from './mantenimiento/trabajos/trabajos.component';
 import { IndexMantenimientoComponent } from './mantenimiento/index/index.component';
 import { LoginComponent } from './mantenimiento/login/login.component';
 import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component';
+import { SobremiEditarComponent } from './mantenimiento/sobremi-editar/sobremi-editar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index/ntiRhBJH0akjSBGAyBtA', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'Trabajos', component: TrabajosComponent },
       {
         path: 'SobreMi-list', component: SobremiListComponent, children: [
-          { path: 'SobreMi', component: SobremiComponent },
+          { path: 'SobreMi-agregar', component: SobremiComponent },
+          { path: 'SobreMi-editar/:id', component: SobremiEditarComponent}
         ]
       }
     ]

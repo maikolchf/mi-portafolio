@@ -21,13 +21,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { UsuarioComponent } from './mantenimiento/usuario/usuario.component';
-import { SobremiComponent } from './mantenimiento/sobremi/sobremi.component';
+import { SobremiComponent } from './mantenimiento/sobremi-agregar/sobremi.component';
 import { TrabajosComponent } from './mantenimiento/trabajos/trabajos.component'
 import { IndexMantenimientoComponent } from './mantenimiento/index/index.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputMaskModule } from '@ngneat/input-mask';
 import { LoginComponent } from './mantenimiento/login/login.component';
-import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component'
+import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.component';
+import { SobremiEditarComponent } from './mantenimiento/sobremi-editar/sobremi-editar.component'
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { SobremiListComponent } from './mantenimiento/sobremi-list/sobremi-list.
     TrabajosComponent,
     IndexMantenimientoComponent,
     LoginComponent,
-    SobremiListComponent
+    SobremiListComponent,
+    SobremiEditarComponent
   ],
   imports: [
     BrowserModule,

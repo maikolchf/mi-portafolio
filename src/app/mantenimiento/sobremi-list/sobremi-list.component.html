@@ -6,7 +6,7 @@
     Lista de información sobre mi
   </h1>
   <div class="contenedor">
-    <a [routerLink]="['SobreMi/']" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <a [routerLink]="['SobreMi-agregar/']" (click)="eventoBtnAgregar()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
       <span class="">Agregar</span>
     </a>
@@ -21,7 +21,7 @@
         <tr *ngFor="let item of sobreMi">
           <td>{{ item.descripcion.slice(0,100) }}...</td>
           <td>
-            <a [routerLink]="['SobreMi/']+item.id" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <a [routerLink]="['SobreMi-editar/']+item.id" (click)="eventoBtnEditar()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
               <span class="text-event">Editar</span>
             </a>
@@ -42,7 +42,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Título del modal</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

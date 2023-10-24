@@ -33,6 +33,7 @@ export class SobremiListComponent implements OnInit{
   };
   mensajeSalida = '';
   claseSalida = '';
+  tituloModal: string = "";
   constructor(private data: IndexMantenimientoComponent, private apiService: ApiServiceService){}
 
   ngOnInit(): void {
@@ -75,5 +76,11 @@ export class SobremiListComponent implements OnInit{
       setTimeout(() => {
         this.mensajeSalida = ''
       }, 3000);
+  }
+  eventoBtnAgregar(){
+    this.tituloModal= "Agregar información sobre mi";
+  }
+  eventoBtnEditar(){
+    this.tituloModal= "Editar información sobre mi";
   }
 }
