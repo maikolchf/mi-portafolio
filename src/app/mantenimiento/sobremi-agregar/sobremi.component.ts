@@ -27,24 +27,60 @@ export class SobremiComponent implements OnInit {
   formulario: FormGroup = new FormGroup({
     Descripcion: new FormControl('', [Validators.required]),
   });
+  filtro: usuario = {
+    id: '',
+    celular:'',
+    contrasenna:'',
+    correoElectronico:'',
+    imagen:'',
+    imagenPerfil:'',
+    nombre:'',
+    primerApellido:'',
+    puestoLaboral:'',
+    segundoApellido:''
+  };
   dato: any;
+  usuario: any;
   mensajeSalida = '';
   claseSalida = '';
   constructor(private data: IndexMantenimientoComponent, private route: ActivatedRoute,
-    private api: ApiServiceService, private datosCompartidos: DatosCompartidosService) { }
+    private api: ApiServiceService, private datosCompartidos: DatosCompartidosService,) { }
 
   ngOnInit(): void {
     this.data.usuario$.subscribe((item)=>{
-      this.dato = item;
+      this.usuario = item.usuario;
+      this.dato = item.sobreMi;
     });
+
+    this.datosCompartidos.getObtenerDatosSobreMi().subscribe((item => {
+      if(item){
+        this.obtenerDatos();
+      }
+    }));
+    
   }
 
+  obtenerDatos(){
+    this.data.usuario$.subscribe(item => {
+      if(item){
+        this.filtro.id = item.usuario.id
+        this.api.obtenerDatosSobreMi(this.filtro).subscribe((info) => {
+            if(!info.hayError){
+              this.dato = info.objetoRespuesta
+            }
+        });
+      }
+    });
+  }
+  
   construirObjetoInsertar(form: FormGroup): sobreMi {
+    const valoresPosicion = this.dato.map((item:any) => item.posicion);
+    const maximoPosicion = Math.max(...valoresPosicion);
     const data: sobreMi = {
       id: '',
-      id_Usuario: this.dato.usuario.id,
+      id_Usuario: this.usuario.id,
       descripcion: form.get('Descripcion')?.value,
-      posicion: (this.dato.sobreMi.length + 1)
+      posicion: (maximoPosicion + 1)
     };
     return data;
   }
